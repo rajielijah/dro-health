@@ -1,5 +1,7 @@
 import 'package:drohealth/constant/colors.dart';
+import 'package:drohealth/screens/cart_views.dart';
 import 'package:drohealth/widget/categoris_widgte.dart';
+import 'package:drohealth/widget/suggestion_widget.dart';
 import 'package:flutter/material.dart';
 
 class Pharmacy extends StatelessWidget {
@@ -83,7 +85,7 @@ class Pharmacy extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                height: height,
+                // height: height,
                 color: Colors.white70,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,71 +148,155 @@ class Pharmacy extends StatelessWidget {
                             fontWeight: FontWeight.w700),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Container(
-                        height: 215,
-                        width: 168,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[100],
-                          borderRadius: BorderRadius.circular(15),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey,
-                              offset: Offset(0.0, 1.0), //(x,y)
-                              blurRadius: 16.0,
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              "assets/images/sup1.png",
-                              height: 127,
-                              width: 168,
-                              fit: BoxFit.fitWidth,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "Paracetamol",
-                                style: TextStyle(
-                                    // color: Colors.white,
-                                    fontFamily: "Proxima Nova",
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w500),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          suggestionWidget(
+                              context,
+                              Image.asset(
+                                "assets/images/sup2.png",
+                                height: 127,
+                                width: 168,
+                                fit: BoxFit.fitWidth,
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 8.0, left: 8),
-                              child: Text(
-                                "Tablet * 500mg",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: "Proxima Nova",
-                                    fontSize: 15,
-                                    color: Colors.black45),
+                              "Paracetamol",
+                              "Table * 500mg",
+                              "\$350.00"),
+                          suggestionWidget(
+                              context,
+                              Image.asset(
+                                "assets/images/sup5.png",
+                                height: 127,
+                                width: 168,
+                                fit: BoxFit.fitWidth,
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "\$350.00",
-                                style: TextStyle(
-                                    fontFamily: "Proxima Nova",
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.w800),
-                              ),
-                            )
-                          ],
-                        ),
+                              "Doliprane",
+                              "Capsule * 1000mg",
+                              "\$350.00"),
+                        ],
                       ),
-                    )
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          suggestionWidget(
+                              context,
+                              Image.asset(
+                                "assets/images/sup4.png",
+                                height: 127,
+                                width: 168,
+                                fit: BoxFit.fitWidth,
+                              ),
+                              "Paracetamol",
+                              "Table * 500mg",
+                              "\$350.00"),
+                          suggestionWidget(
+                              context,
+                              Image.asset(
+                                "assets/images/sup3.png",
+                                height: 127,
+                                width: 168,
+                                fit: BoxFit.fitWidth,
+                              ),
+                              "Ibuprofen",
+                              "Table * 200mg",
+                              "\$350.00"),
+                        ],
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          suggestionWidget(
+                              context,
+                              Image.asset(
+                                "assets/images/sup2.png",
+                                height: 127,
+                                width: 168,
+                                fit: BoxFit.fitWidth,
+                              ),
+                              "Panadol",
+                              "Table * 500mg",
+                              "\$350.00"),
+                          suggestionWidget(
+                              context,
+                              Image.asset(
+                                "assets/images/sup1.png",
+                                height: 127,
+                                width: 168,
+                                fit: BoxFit.fitWidth,
+                              ),
+                              "Ibuprofen",
+                              "Table * 400mg",
+                              "\$350.00"),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
+              Align(
+                alignment: Alignment.topRight,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CartScreen()));
+                  },
+                  child: Container(
+                    height: 43,
+                    width: 140,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(color: Colors.white, width: 5),
+                      gradient: LinearGradient(
+                        colors: [
+                          const Color(0xFFE5366A),
+                          const Color(0xFFFE806F)
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        stops: [0.0, 0.1],
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            'Checkout',
+                            style: TextStyle(
+                                fontFamily: "Proxima Nova",
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          Icon(
+                            Icons.shopping_cart_outlined,
+                            color: Colors.white,
+                          ),
+                          CircleAvatar(
+                            radius: 13,
+                            backgroundColor: Colors.amber,
+                            child: Text(
+                              "2",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              )
             ],
           ),
         ),
