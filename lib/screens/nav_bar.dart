@@ -1,3 +1,5 @@
+import 'package:drohealth/constant/colors.dart';
+import 'package:drohealth/screens/pharmacy_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -8,13 +10,15 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
-  static const color = kPrimaryColor;
+  static const color = DROMiddleBlue;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    //   HomePage(),
-    //  Histroy(),
-    //   ProfileScreen(),
+    Pharmacy(),
+    Pharmacy(),
+    Pharmacy(),
+    Pharmacy(),
+    Pharmacy(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -32,29 +36,42 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            //  icon: SvgPicture.asset('assets/images/navs4.svg'),
+            icon: ImageIcon(AssetImage('assets/images/nurse.png')),
             label: 'Home',
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
             // icon: SvgPicture.asset('assets/images/navm.svg'),
-            label: 'Histroy',
-            backgroundColor: color,
+            icon: ImageIcon(AssetImage('assets/images/nurse.png')),
+            label: 'Doctors',
+            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-            // icon: SvgPicture.asset('assets/images/navs1.svg'),
-            // icon: ImageIcon(AssetImage('images/vector8.png')),
+            // icon: ImageIcon.asset('assets/images/navs1.svg'),
+            icon: ImageIcon(AssetImage('assets/images/add-to-cart.png')),
+            label: 'Pharmacy',
+            backgroundColor: Colors.black,
+          ),
+          BottomNavigationBarItem(
+            // icon: ImageIcon.asset('assets/images/navs1.svg'),
+            icon: ImageIcon(AssetImage('assets/images/message.png')),
+            label: 'Pharmacy',
+            backgroundColor: Colors.black,
+          ),
+          BottomNavigationBarItem(
+            // icon: ImageIcon.asset('assets/images/navs1.svg'),
+            icon: ImageIcon(AssetImage('assets/images/user.png')),
             label: 'Profile',
-            backgroundColor: color,
+            backgroundColor: Colors.black,
           ),
         ],
         type: BottomNavigationBarType.fixed,
-        // backgroundColor: kPrimaryColor.withGreen(5),
+        backgroundColor: Colors.grey[300],
         currentIndex: _selectedIndex,
-        // selectedItemColor: kPColor[20],
+        selectedItemColor: DROMiddleBlue,
         // unselectedIconTheme: ,
-        selectedIconTheme: IconThemeData(color: Colors.amber),
-        unselectedItemColor: Colors.white,
+        selectedIconTheme: IconThemeData(color: DROMiddleBlue),
+        unselectedItemColor: Colors.black,
         onTap: _onItemTapped,
         iconSize: 30,
         // elevation: 30,
