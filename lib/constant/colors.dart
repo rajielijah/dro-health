@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 const MaterialColor DROTurquoise =
     const MaterialColor(0xFF0CB8B6, const <int, Color>{});
-
+const MaterialColor textColor = const MaterialColor(
+    0xFF8EA5BC, const <int, Color>{10: const Color(0xFF13447A)});
 const MaterialColor DROPurple =
     const MaterialColor(0xFF9F5DE2, const <int, Color>{});
 const MaterialColor DROMiddleBlue =

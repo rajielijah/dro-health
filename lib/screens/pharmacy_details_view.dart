@@ -1,7 +1,27 @@
+import 'package:drohealth/constant/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class PharamcyDetailScreen extends StatelessWidget {
+class PharamcyDetailScreen extends StatefulWidget {
   const PharamcyDetailScreen({Key? key}) : super(key: key);
+
+  @override
+  _PharamcyDetailScreenState createState() => _PharamcyDetailScreenState();
+}
+
+class _PharamcyDetailScreenState extends State<PharamcyDetailScreen> {
+  int _counter = 1;
+  void incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +99,268 @@ class PharamcyDetailScreen extends StatelessWidget {
                   fontSize: 20,
                   color: Colors.black45),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            ListTile(
+              minVerticalPadding: 0,
+              minLeadingWidth: 20,
+              leading: Image.asset("assets/images/det1.png"),
+              title: Text(
+                "SOLD BY",
+                style: TextStyle(
+                    color: textColor, fontFamily: "Proxima Nova", fontSize: 15),
+              ),
+              subtitle: Text(
+                "Emzor Pharmaceuticals",
+                style: TextStyle(
+                    fontFamily: "Proxima Nova",
+                    fontWeight: FontWeight.w700,
+                    color: textColor[10]),
+              ),
+              trailing: Container(
+                height: 32,
+                width: 32,
+                decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(5)),
+                child: Icon(
+                  Icons.favorite_border,
+                  color: DROPurple,
+                ),
+              ),
+            ),
+            // SizedBox(
+            //   height: 10,
+            // ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Row(
+                children: [
+                  Container(
+                    width: 96,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        // color: Colors.grey,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: textColor)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        GestureDetector(
+                            onTap: () {
+                              decrementCounter();
+                            },
+                            child: Text(
+                              "-",
+                              style: TextStyle(
+                                fontFamily: "Proxima Nova",
+                                fontSize: 25,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            )),
+                        Text(
+                          "$_counter",
+                          style: TextStyle(
+                            fontFamily: "Proxima Nova",
+                            fontSize: 25,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              incrementCounter();
+                            },
+                            child: Text(
+                              "+",
+                              style: TextStyle(
+                                fontFamily: "Proxima Nova",
+                                fontSize: 25,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            )),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Pack(s)",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: "Proxima Nova",
+                        fontWeight: FontWeight.w200),
+                  ),
+                  SizedBox(
+                    width: width / 4,
+                  ),
+                  // Text("wefs"),
+                  // RichText(
+                  //   text: TextSpan(
+                  //     text: 'Hello ',
+
+                  //     children: <TextSpan>[
+                  //       TextSpan(
+                  //           text: 'Geeks',
+                  //           style: TextStyle(fontWeight: FontWeight.bold)),
+                  //     ],
+                  //   ),
+                  // ),
+                  RichText(
+                      text: TextSpan(
+                          text: "\$",
+                          style: Theme.of(context).textTheme.subhead,
+                          children: [
+                        TextSpan(
+                            text: "600",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 30,
+                                fontFamily: "Proxima Nova")),
+                        TextSpan(
+                            text: ".00",
+                            style: TextStyle(
+                                fontFamily: "Proxima Nova",
+                                fontWeight: FontWeight.w700)),
+                      ]))
+                ],
+              ),
+            ),
+            Text(
+              "PRODUCT DETAILS",
+              style: TextStyle(
+                  color: textColor,
+                  fontSize: 18,
+                  fontFamily: "Proxima Nova",
+                  fontWeight: FontWeight.w700),
+            ),
+            Row(
+              children: [
+                Row(
+                  children: [
+                    SvgPicture.asset("assets/images/det5.svg"),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "PACK SIZE",
+                          style: TextStyle(
+                              color: textColor,
+                              fontFamily: "Proxima Nova",
+                              fontSize: 15),
+                        ),
+                        Text(
+                          "8 x 12 tablets (96)",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: "Proxima Nova",
+                              fontWeight: FontWeight.w700,
+                              color: textColor[10]),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Row(
+                  children: [
+                    SvgPicture.asset("assets/images/det3.svg"),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "PRODCUT ID",
+                          style: TextStyle(
+                              color: textColor,
+                              fontFamily: "Proxima Nova",
+                              fontSize: 15),
+                        ),
+                        Text(
+                          "PRO23648856",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: "Proxima Nova",
+                              fontWeight: FontWeight.w700,
+                              color: textColor[10]),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Row(
+                  children: [
+                    SvgPicture.asset("assets/images/det3.svg"),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "PRODCUT ID",
+                          style: TextStyle(
+                              color: textColor,
+                              fontFamily: "Proxima Nova",
+                              fontSize: 15),
+                        ),
+                        Text(
+                          "PRO23648856",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: "Proxima Nova",
+                              fontWeight: FontWeight.w700,
+                              color: textColor[10]),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Row(
+                  children: [
+                    SvgPicture.asset("assets/images/det3.svg"),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "PRODCUT ID",
+                          style: TextStyle(
+                              color: textColor,
+                              fontFamily: "Proxima Nova",
+                              fontSize: 15),
+                        ),
+                        Text(
+                          "PRO23648856",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: "Proxima Nova",
+                              fontWeight: FontWeight.w700,
+                              color: textColor[10]),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            )
           ],
         ),
       ),
