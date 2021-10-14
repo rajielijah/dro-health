@@ -1,5 +1,6 @@
 import 'package:drohealth/constant/colors.dart';
 import 'package:drohealth/screens/cart_views.dart';
+import 'package:drohealth/screens/categories_screen.dart';
 import 'package:drohealth/widget/categoris_widgte.dart';
 import 'package:drohealth/widget/suggestion_widget.dart';
 import 'package:flutter/material.dart';
@@ -103,12 +104,21 @@ class Pharmacy extends StatelessWidget {
                                 fontFamily: "Proxima Nova",
                                 fontWeight: FontWeight.w700),
                           ),
-                          Text(
-                            "VIEW ALL",
-                            style: TextStyle(
-                                color: DROMiddleBlue,
-                                fontFamily: "Proxima Nova",
-                                fontWeight: FontWeight.w500),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          CategoriesScreen()));
+                            },
+                            child: Text(
+                              "VIEW ALL",
+                              style: TextStyle(
+                                  color: DROMiddleBlue,
+                                  fontFamily: "Proxima Nova",
+                                  fontWeight: FontWeight.w500),
+                            ),
                           )
                         ],
                       ),
