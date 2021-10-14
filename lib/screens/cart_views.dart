@@ -236,6 +236,67 @@ class CartScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: height / 6,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Row(
+                children: [
+                  Text(
+                    "Total: ",
+                    style: TextStyle(
+                        fontFamily: "Proxima Nova",
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18),
+                  ),
+                  Text(
+                    "\$4500.00",
+                    style: TextStyle(
+                        fontFamily: "Proxima Nova",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20),
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  Container(
+                    height: 50,
+                    width: width / 2,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[400],
+                      borderRadius: BorderRadius.circular(15),
+                      gradient: LinearGradient(
+                        colors: [
+                          const Color(0xFF7A08FA),
+                          const Color(0xFFAD3BFC)
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        stops: [0.0, 0.1],
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'CHECKOUT',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontFamily: "Proxima Nova",
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       )),

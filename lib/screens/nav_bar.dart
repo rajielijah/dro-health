@@ -1,5 +1,9 @@
 import 'package:drohealth/constant/colors.dart';
+import 'package:drohealth/screens/community_screen.dart';
+import 'package:drohealth/screens/doctor_screen.dart';
+import 'package:drohealth/screens/home_sreen.dart';
 import 'package:drohealth/screens/pharmacy_view.dart';
+import 'package:drohealth/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -14,11 +18,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
+    DoctorScreen(),
     Pharmacy(),
-    Pharmacy(),
-    Pharmacy(),
-    Pharmacy(),
-    Pharmacy(),
+    CommunityScreen(),
+    ProfileScreen()
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -36,7 +40,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage('assets/images/nurse.png')),
+            // icon: ImageIcon(AssetImage('assets/images/nurse.png')),
+            icon: Icon(Icons.home_outlined),
             label: 'Home',
             backgroundColor: Colors.black,
           ),
@@ -55,7 +60,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           BottomNavigationBarItem(
             // icon: ImageIcon.asset('assets/images/navs1.svg'),
             icon: ImageIcon(AssetImage('assets/images/message.png')),
-            label: 'Pharmacy',
+            label: 'Community',
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
@@ -68,9 +73,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.grey[300],
         currentIndex: _selectedIndex,
-        selectedItemColor: DROMiddleBlue,
+        selectedItemColor: DROPurple,
         // unselectedIconTheme: ,
-        selectedIconTheme: IconThemeData(color: DROMiddleBlue),
+        selectedIconTheme: IconThemeData(color: DROPurple),
         unselectedItemColor: Colors.black,
         onTap: _onItemTapped,
         iconSize: 30,

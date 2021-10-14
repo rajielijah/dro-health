@@ -18,7 +18,7 @@ class Pharmacy extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 150,
+                height: 170,
                 width: width,
                 decoration: BoxDecoration(
                   color: Colors.grey[400],
@@ -59,6 +59,37 @@ class Pharmacy extends StatelessWidget {
                           ImageIcon(AssetImage("assets/images/delivery.png"),
                               color: Colors.white)
                         ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          // search functionality goes here
+                        },
+                        child: Container(
+                          height: 40,
+                          width: width,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white.withOpacity(0.2)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.search, color: Colors.white),
+                                Text(
+                                  ' Search',
+                                  style: TextStyle(
+                                      fontFamily: "Proxima Nova",
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 23,
+                                      color: Colors.white),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                       )
                     ],
                   ),
